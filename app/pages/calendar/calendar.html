@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Calendar  <ion-icon (click)="showNewEventModal()" name="add-circle"></ion-icon>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ionic2-calendar [calEvents]="calEvents" 
+    (afterEventMove)="afterEventMoved($event)"
+    (onEventTap)="onEventTap($event)"></ionic2-calendar>
+  <h1>Ionic 2 Calendar (alpha)</h1>
+  <p>
+    A responsive calendar directive for Ionic 2 apps. Calendar items are draggable and
+    can have custom event listeners for tap, doubletap and press events (test
+    them on <strong>Item 2</strong>). Events
+    are also fired when items are dragged to a new date. For more info check out
+    the Github repository link below.
+  </p>
+  <p>
+    To create new events press the <ion-icon name="add-circle"></ion-icon> at
+  the top of the page or hold down on an a cell in the calendar grid.
+</p>
+<p>
+  <a><ion-icon name="logo-github"></ion-icon> Github repo</a>
+</p>
+</ion-content>
