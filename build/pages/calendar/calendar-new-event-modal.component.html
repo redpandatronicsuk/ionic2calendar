@@ -1,0 +1,17 @@
+<ion-content padding class="calendar-new-event-modal">
+  <h2>Create new event on {{startDate | date}}</h2>
+  <ion-item>
+    <ion-label primary floating>Name</ion-label>
+    <ion-input [(ngModel)]="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Start Date</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY HH:mm" [(ngModel)]="startDate"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>End Date</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY HH:mm" [(ngModel)]="endDate"></ion-datetime>
+  </ion-item>
+  <button clear (click)="close()">Close</button>
+  <button (click)="save()">Save</button>
+</ion-content>

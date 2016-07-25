@@ -1,0 +1,58 @@
+<div class="ionic2-calendar" [ngClass]="sizeClass">
+  <div class="ionic2-cal-topnav">
+    <div class="month-selection">
+      <button class="switch-month-button" (click)="plusMonth(-1)"><ion-icon name="arrow-back"></ion-icon> previous month</button>
+      <div style="width: 240px;position: relative;">
+        <ion-select (ngModelChange)="setDateSelectionMonth($event)" [(ngModel)]="ctrl.selectedMonth">
+          <ion-option *ngFor="let m of months" [value]="m">{{m}}</ion-option>
+        </ion-select>
+      </div>
+      <button class="switch-month-button" (tap)="plusMonth(1)">next month <ion-icon name="arrow-forward"></ion-icon></button>
+    </div>
+  </div>
+  <div class="main-view">
+    <div class="ionic2-cal-month-view">
+      <div class="ionic2-cal-item ionic2-cal-header"
+           *ngFor="let wd of weekDays">
+           {{wd}}
+    </div>
+    <!-- Data attribute idx should be enough, cause then we can retrieve the date, etc from the idx... -->
+    <button class="ionic2-cal-item" [attr.data-idx]="i" [attr.data-dayofmonth]="d.date.date()" [attr.data-month]="d.date.month()" [attr.data-year]="d.date.year()" [id]="'month-grid-day-' + i"
+            *ngFor="let d of ctrl.monthView.days; let i = index" 
+            [ngClass]="{'out-of-current-month': (d.date.isBefore(ctrl.monthView.firstDayOfMonth) || d.date.isAfter(ctrl.monthView.lastDayOfMonth))}"
+            (tap)="selectDate(d, $event)"
+            (press)="monthDayGridCellOnPress(d, $event)">
+            <ul class="event-list" [dragula]='"first-bag"' [dragulaModel]='d.events'>
+        <button
+          class="event-list-item 
+          {{e.endDate.getDate() !== d.date.date() ? 'does-continue' : ''}} 
+          {{e.startDate.getDate() !== d.date.date() ? 'is-continued' : ''}}
+          {{(e.endDate.getDate() !== d.date.date()) || (e.startDate.getDate() !== d.date.date()) ? 'multi-span-' + e.id : ''}}
+          {{activeDragGroup === 'multi-span-' + e.id ? 'active-group-drag' : ''}}" 
+          [ngClass]="e?.class" 
+          *ngFor="let e of d.events"
+          [id]="e.id"
+          (tap)="eventOnClick(e, $event)"
+          (press)="eventOnPress(e, $event)">
+          <span *ngIf="e.startDate.getDate() === d.date.date()" class="ionic2-event-time">{{e.startDate | date:"HH:mm"}}: </span>
+          <span *ngIf="e.startDate.getDate() !== d.date.date()">...</span> 
+          <!--<i [ngClass]="e?.icon"></i>-->
+          <ion-icon [name]="e?.icon" [ngStyle]="e.iconStyle"></ion-icon>
+          <span class="event-name" [ngClass]="e?.class" [ngStyle]="e?.style"> {{e.name}}</span>
+          <span class="event-continued-ellipsis" *ngIf="e.endDate.getDate() !== d.date.date()">...</span>
+        </button>
+      </ul>
+      <span class="ionic2-cal-day-of-month">{{d.date.date()}}</span>
+    </button>
+  </div>
+</div>
+<div class="selection-view">
+  {{ctrl.monthView.selectedDate?.date?.format('MMM Do YYYY')}}
+  <ion-list class="event-list">
+    <li [ngClass]="e.class" [ngStyle]="e.style" *ngFor="let e of ctrl.monthView?.selectedDate?.events">
+      <span>{{e.startDate | date:"HH:mm"}}: </span>
+    <ion-icon [ngStyle]="e?.iconStyle" [name]="e?.icon"></ion-icon> {{e.name}}
+    </li>
+  </ion-list>
+</div>
+</div>
