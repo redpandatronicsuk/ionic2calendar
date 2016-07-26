@@ -8,3 +8,13 @@ plugins/
 *.swp
 .DS_Store
 Thumbs.db
+
+nbproject/private/private.xml
+
+.publish/
+
+npm-debug.log
+
+npm-debug.log
+
+npm-debug.log

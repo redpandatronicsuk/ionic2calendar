@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     gulpWatch = require('gulp-watch'),
     del = require('del'),
     runSequence = require('run-sequence'),
-    argv = process.argv;
+    argv = process.argv,
+    ghPages = require('gulp-gh-pages');;
 
 
 /**
@@ -62,6 +63,11 @@ gulp.task('build', ['clean'], function(done){
       }).on('end', done);
     }
   );
+});
+
+gulp.task('deploy-to-github-pages', function() {
+  return gulp.src('./platforms/browser/www/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('sass', buildSass);
