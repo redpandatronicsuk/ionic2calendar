@@ -1,13 +1,13 @@
 <div class="ionic2-calendar" [ngClass]="sizeClass">
   <div class="ionic2-cal-topnav">
     <div class="month-selection">
-      <button class="switch-month-button" (click)="plusMonth(-1)"><ion-icon name="arrow-back"></ion-icon> previous month</button>
+      <button class="switch-month-button" (click)="plusMonth(-1)"><ion-icon name="arrow-back"></ion-icon> {{sizeClass === '' ? 'previous' : '-'}} month</button>
       <div style="width: 240px;position: relative;">
         <ion-select (ngModelChange)="setDateSelectionMonth($event)" [(ngModel)]="ctrl.selectedMonth">
           <ion-option *ngFor="let m of months" [value]="m">{{m}}</ion-option>
         </ion-select>
       </div>
-      <button class="switch-month-button" (tap)="plusMonth(1)">next month <ion-icon name="arrow-forward"></ion-icon></button>
+      <button class="switch-month-button" (tap)="plusMonth(1)">{{sizeClass === '' ? 'next' : '+'}} month <ion-icon name="arrow-forward"></ion-icon></button>
     </div>
   </div>
   <div class="main-view">
