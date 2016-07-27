@@ -8846,25 +8846,21 @@ ionic2-calendar {
       margin: 0; }
     ionic2-calendar .ionic2-calendar .event-list-item {
       text-overflow: ellipsis; }
-  ionic2-calendar .ionic2-calendar.small .ionic2-cal-month-view .ionic2-cal-item, ionic2-calendar .ionic2-calendar.extra-small .ionic2-cal-month-view .ionic2-cal-item {
+  ionic2-calendar .ionic2-calendar.small .ionic2-cal-month-view .ionic2-cal-item .event-list, ionic2-calendar .ionic2-calendar.extra-small .ionic2-cal-month-view .ionic2-cal-item .event-list {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
-    flex-direction: row; }
-    ionic2-calendar .ionic2-calendar.small .ionic2-cal-month-view .ionic2-cal-item .event-list, ionic2-calendar .ionic2-calendar.extra-small .ionic2-cal-month-view .ionic2-cal-item .event-list {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-      justify-content: space-around; }
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+    ionic2-calendar .ionic2-calendar.small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item, ionic2-calendar .ionic2-calendar.extra-small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item {
+      font-size: .7em; }
       ionic2-calendar .ionic2-calendar.small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item span.event-name, ionic2-calendar .ionic2-calendar.small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item span.ionic2-event-time, ionic2-calendar .ionic2-calendar.extra-small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item span.event-name, ionic2-calendar .ionic2-calendar.extra-small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item span.ionic2-event-time {
         display: none; }
-      ionic2-calendar .ionic2-calendar.small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item:first-child, ionic2-calendar .ionic2-calendar.extra-small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item:first-child {
-        padding-right: 3.5px; }
+    ionic2-calendar .ionic2-calendar.small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item:first-child, ionic2-calendar .ionic2-calendar.extra-small .ionic2-cal-month-view .ionic2-cal-item .event-list .event-list-item:first-child {
+      padding-right: 3.5px; }
 
 .event-list-item.haq-calendar-entry {
   color: purple;

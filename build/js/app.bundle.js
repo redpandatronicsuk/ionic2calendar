@@ -217,12 +217,11 @@ var CalendarComponent = (function () {
         this.makeDaysInMonthViewList();
     };
     CalendarComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
         // This returns 0 clientWidth for some reason at first??? That's why wrapped
         // in timeout, UPDATE: only seems a problem when in phone emulation mode in chrome!!
-        setTimeout(function () {
-            _this.updateSize();
-        }, 1500);
+        //    setTimeout(() => {
+        this.updateSize();
+        //    }, 1500);
     };
     CalendarComponent.prototype.addMissingIds = function () {
         this.calEvents.forEach(function (d) {
