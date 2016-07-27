@@ -142,12 +142,13 @@ ionic2-calendar {
   .ionic2-calendar.small, .ionic2-calendar.extra-small {
     .ionic2-cal-month-view {
       .ionic2-cal-item {
-        flex-direction: row;
+        //flex-direction: row;
         .event-list {
           //padding-top: 1em;
           flex-direction: row;
           justify-content: space-around;
           .event-list-item {
+            font-size: .7em;
             span.event-name, span.ionic2-event-time {
               display: none;
             }
