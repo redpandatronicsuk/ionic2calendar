@@ -1,4 +1,6 @@
 # No longer maintained
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/redpandatronicsuk/ionic2calendar.svg)](https://greenkeeper.io/)
 I wrote this calendar component some time ago, when Ionic 2 was still in the beta phase. Back then I was very excited about the upcoming Ionic 2 release, but the Ionic team took way longer to build a release version of Ionic 2 (mainly because the Angular team was slow in releasing the next version of Angular) and I shifted my interests from Angular to React and from Ionic/Cordova to React Native. You could still use this code though as a starting point for writing your own Angular/Ionic based calendar and I will keep this repository for reference.
 
 # Ionic 2 Calendar
